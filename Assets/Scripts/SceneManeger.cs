@@ -19,7 +19,7 @@ public class SceneManeger : MonoBehaviour
     void tween()
     {
         gameObject.transform.localScale = Vector3.one;
-        LeanTween.scale(GetComponent<RectTransform>(), new Vector3(1.1f, 1.1f, 1.1f), 0.6f).setLoopPingPong();      
+        LeanTween.scale(GetComponent<RectTransform>(), Vector3.one*1.1f, 0.6f).setLoopPingPong();      
      
 
     }

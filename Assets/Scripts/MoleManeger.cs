@@ -26,7 +26,7 @@ public class MoleManeger : MonoBehaviour
     private GameObject Hammer;
 
     private int Score = 0;
-    private float GameTimer = 5f;
+    private float GameTimer = 40f;
     private float Timer = 1.5f;
 
     void Awake()
@@ -69,23 +69,7 @@ public class MoleManeger : MonoBehaviour
         //game end
         if(GameTimer <= 0 )
         {
-            //Move to another method
-            //move down all moles
-            for (int i = 0; i < moles.Length; i++)
-            {
-                    moles[i].SetClicked(true); 
-            }
-
-            //activate gameover scene and send the score
-            FinalScore.text = "Score : "+Score.ToString();
-            GameOver.transform.localScale = Vector3.zero;
-            GameOver.SetActive(true);
-            LeanTween.scale(GameOver, Vector3.one, 1f).setEaseOutBounce();
-           
-
-            //deactivate objects
-            Hammer.SetActive(false);
-            gameObject.SetActive(false);
+            EndGame();
         }
 
         if(Timer <= 0)
@@ -120,5 +104,25 @@ public class MoleManeger : MonoBehaviour
         TextScore.text = "Score : "+Score.ToString();     
     }
 
+
+    void EndGame()
+    {
+        //move down all moles
+        for (int i = 0; i < moles.Length; i++)
+        {
+            moles[i].SetClicked(true);
+        }
+
+        //activate gameover scene and send the score
+        FinalScore.text = "Score : " + Score.ToString();
+        GameOver.transform.localScale = Vector3.zero;
+        GameOver.SetActive(true);
+        LeanTween.scale(GameOver, Vector3.one, 1f).setEaseOutBounce();
+
+
+        //deactivate objects
+        Hammer.SetActive(false);
+        gameObject.SetActive(false);
+    }
    
 }
