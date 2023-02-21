@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+[RequireComponent(typeof(CapsuleCollider))]
+
 public class Mole : MonoBehaviour
 {
 
     public event Action MoleClicked;
-    public bool Clicked = false;
- 
+    private bool Clicked = false;
+    public bool clicked { set { Clicked = value; } get { return Clicked; } }
     private float yPositionMax=1.7f;
-    private float yPositionMin = 0.9f;
+    private float yPositionMin = -0.9f;
     private Vector3 Position;
     private float speed=3;
     private Collider co;
@@ -19,7 +21,6 @@ public class Mole : MonoBehaviour
 
     void Start()
     {
-        
         Position = gameObject.transform.position;
         co = GetComponent<CapsuleCollider>();
     }

@@ -8,7 +8,7 @@ public class SceneManeger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       // tween();
+       tween();
     }
     public void ReloadScene(int scene)
     {
@@ -18,9 +18,8 @@ public class SceneManeger : MonoBehaviour
 
     void tween()
     {
-       
-            gameObject.transform.localScale = Vector3.one;
-            LeanTween.scale(gameObject, Vector3.one*1.1f, 1f).setEaseInOutBounce().setLoopPingPong();      
+        gameObject.transform.localScale = Vector3.one;
+        LeanTween.scale(GetComponent<RectTransform>(), new Vector3(1.1f, 1.1f, 1.1f), 0.6f).setLoopPingPong();      
      
 
     }

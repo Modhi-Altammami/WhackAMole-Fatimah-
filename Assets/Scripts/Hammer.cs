@@ -5,8 +5,9 @@ using UnityEngine;
 public class Hammer : MonoBehaviour
 {
 
-    public Camera CamMain;
-    public ParticleSystem partical;
+    private Camera CamMain;
+   [SerializeField] 
+    private ParticleSystem partical;
     private Vector3 TargetPos;
     private Ray ray;
     private float yPos;
